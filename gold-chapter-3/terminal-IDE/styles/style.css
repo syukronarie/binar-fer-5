@@ -1,0 +1,53 @@
+* {
+	font-family: "Segoe UI", "Helvetica Neue", "Helvetica", Arial, sans-serif;
+}
+* {
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+user agent stylesheet div {
+	display: block;
+}
+.alt-downloads {
+	text-align: center;
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+	only screen and (min-resolution: 192dpi) body {
+	-webkit-font-smoothing: antialiased;
+}
+body {
+	font-weight: 400;
+	color: #444;
+	text-rendering: optimizeLegibility;
+}
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #333;
+	background-color: #fff;
+}
+
+/* todo: css masih kurang tepat, perlu diubah font size nya */
+@media (min-width: 1200px) html {
+	font-size: 10px;
+}
+@media (min-width: 992px) html {
+	font-size: 9.5px;
+}
+@media (min-width: 768px) html {
+	font-size: 9px;
+}
+html {
+	font-size: 10px;
+}
+html {
+	font-size: 10px;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+html {
+	font-family: sans-serif;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+}

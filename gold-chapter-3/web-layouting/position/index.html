@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>position</title>
+		<style>
+			body {
+				height: 10000px;
+				width: 100vw;
+			}
+			.container {
+				width: 250px;
+				height: 250px;
+				background-color: brown;
+			}
+
+			/* position relative digunakan untuk mengatur element sesuai posisi yg kita inginkan, 
+				default position relative itu mengubah letak element ke pojok kiri atas parent elementnya */
+			.relative {
+				position: relative;
+				width: 50px;
+				height: 50px;
+				top: 10px;
+				left: 10px;
+				background-color: orange;
+			}
+
+			.wrapper {
+				position: relative;
+				width: 800px;
+				height: 800px;
+				background-color: blueviolet;
+			}
+
+			.absolute {
+				position: absolute;
+				width: 50px;
+				height: 50px;
+				background-color: orange;
+			}
+
+			.sticky {
+				position: sticky;
+				height: 40px;
+				width: 100vw;
+				top: 90px;
+				background-color: yellowgreen;
+			}
+
+			.fixed {
+				position: fixed;
+				height: 80px;
+				width: 600px;
+				top: 40px;
+				right: 40px;
+				background-color: beige;
+				border: solid 2px #000;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="relative"></div>
+		</div>
+
+		<div class="wrapper">
+			<div class="absolute"></div>
+		</div>
+
+		<div class="sticky"></div>
+
+		<div class="fixed">
+			<p>Already signed up!</p>
+		</div>
+	</body>
+</html>
