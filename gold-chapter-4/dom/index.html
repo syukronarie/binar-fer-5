@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.students > ul {
+				list-style: none;
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="title">hello</h1>
+		<p name="paragraph">Lorem ipsum dolor sit amet.</p>
+		<p>Lorem ipsum dolor sit.</p>
+
+		<button onclick="toggleStudentList()">Toggle Student List</button>
+		<button onclick="changeColor()">Change color</button>
+		<section class="menus">
+			<ul>
+				<li class="item">Home</li>
+				<li class="item">Services</li>
+				<li class="item">About</li>
+				<li class="item">Career</li>
+			</ul>
+		</section>
+
+		<script>
+			const elementHeading = document.getElementById("title");
+			const elementParagraphs = document.getElementsByTagName("p");
+			elementHeading.style.color = "blue";
+			for (let i = 0; i < elementParagraphs.length; i++) {
+				elementParagraphs[i].style.color = "purple";
+				console.log(i);
+			}
+
+			const items = document.getElementsByClassName("item");
+			for (let i = 0; i < items.length; i++) {
+				items[i].style.color = "red";
+			}
+
+			const elementMenus = document.querySelector("#title");
+			console.log(elementMenus);
+
+			const section = document.createElement("section");
+
+			const students = [
+				{
+					id: 1,
+					firstName: "Richy",
+					lastName: "Goldthorp",
+					email: "rgoldthorp0@trellian.com",
+					gender: "Male",
+				},
+				{
+					id: 2,
+					firstName: "Clara",
+					lastName: "McCurrie",
+					email: "cmccurrie1@omniture.com",
+					gender: "Female",
+				},
+				{
+					id: 3,
+					firstName: "Felipa",
+					lastName: "Fyfield",
+					email: "ffyfield2@ucsd.edu",
+					gender: "Female",
+				},
+			];
+
+			const elementsLi = [];
+			students.map((val) => {
+				const { firstName, lastName } = val;
+				const elementLi = document.createElement("li");
+				elementLi.append(`${firstName} ${lastName}`);
+				elementsLi.push(elementLi);
+			});
+
+			const elementUl = document.createElement("ul");
+
+			elementsLi.forEach((val) => {
+				elementUl.appendChild(val);
+			});
+
+			section.appendChild(elementUl);
+			section.setAttribute("class", "students");
+
+			const parDetail = document.createElement("p");
+			parDetail.textContent =
+				"Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore non provident molestiae, voluptate velit distinctio excepturi adipisci repellendus nesciunt voluptatum.";
+			section.appendChild(parDetail);
+
+			document.body.append(section);
+
+			let show = true;
+			function toggleStudentList() {
+				if (show) {
+					show = false;
+					elementUl.style.display = "none";
+				} else {
+					show = true;
+					elementUl.style.display = "block";
+				}
+			}
+
+			let color = "red";
+			function changeColor() {
+				if (color === "red") {
+					section.style.color = color;
+					color = "blue";
+				} else {
+					section.style.color = color;
+					color = "red";
+				}
+			}
+
+			console.log({ section });
+		</script>
+	</body>
+</html>
