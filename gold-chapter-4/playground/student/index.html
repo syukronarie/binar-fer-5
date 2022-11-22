@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Student</title>
+		<style>
+			body {
+				background-color: rgb(33, 33, 33);
+				color: aliceblue;
+			}
+
+			form {
+				display: flex;
+				justify-content: flex-start;
+				flex-direction: column;
+				width: 250px;
+			}
+
+			button {
+				margin-top: 12px;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Create Student List</h1>
+		<form id="studentForm">
+			<label for="firstName">First name</label>
+			<input type="text" name="firstName" id="firstName" />
+			<label for="lastName">Last name</label>
+			<input type="text" name="lastName" id="lastName" />
+			<label for="email">Email</label>
+			<input type="email" name="email" id="email" />
+			<label for="gender">Gender</label>
+			<select name="gender" id="gender">
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+			</select>
+			<button type="submit">Add</button>
+		</form>
+		<br />
+		<table id="tableStudents">
+			<tr>
+				<th>No</th>
+				<th>First name</th>
+				<th>Last name</th>
+				<th>Email</th>
+				<th>Gender</th>
+				<th>Action</th>
+			</tr>
+		</table>
+		<script src="script.js"></script>
+	</body>
+</html>
