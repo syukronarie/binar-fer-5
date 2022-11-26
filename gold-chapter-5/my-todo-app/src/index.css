@@ -56,3 +56,25 @@ code {
 .todo-incompleted {
 	text-decoration: none;
 }
+
+.modal {
+	top: 0;
+	position: fixed;
+	display: flex;
+	align-items: flex-start;
+	justify-content: center;
+	background-color: rgba(0, 0, 0, 0.118);
+	width: 100%;
+	height: 100%;
+}
+
+.modal-update {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 68px;
+	width: 600px;
+	height: 300px;
+	background-color: #fff;
+	border-radius: 20px;
+}
