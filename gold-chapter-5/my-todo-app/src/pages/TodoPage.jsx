@@ -50,19 +50,23 @@ const TodoPage = () => {
 		const text = e.target.value;
 		const { id, isCompleted } = tempUpdateTodo;
 		setTempUpdateTodo({ id, text, isCompleted });
-		const updatedTodo = { id, text, isCompleted };
-		setTodos((todos) => {
-			return todos.map((todo) => {
-				if (todo.id === id) {
-					todo = updatedTodo;
-				}
-				return todo;
-			});
-		});
 	};
 
 	const handleUpdateTodo = (todo) => {
 		setTempUpdateTodo(todo);
+		handleShowModal();
+	};
+
+	const handleSubmitUpdateTodo = (e) => {
+		e.preventDefault();
+		setTodos((todos) => {
+			return todos.map((todo) => {
+				if (todo.id === tempUpdateTodo.id) {
+					todo = tempUpdateTodo;
+				}
+				return todo;
+			});
+		});
 		handleShowModal();
 	};
 
@@ -99,7 +103,7 @@ const TodoPage = () => {
 				</div>
 			</div>
 			{showModal && (
-				<form className="modal" onSubmit={handleUpdateTodo}>
+				<form className="modal" onSubmit={handleSubmitUpdateTodo}>
 					<div className="modal-update">
 						<input
 							type="text"
@@ -112,7 +116,15 @@ const TodoPage = () => {
 						<button className="button" type="submit">
 							Update Todo
 						</button>
-						<button onClick={handleShowModal}>Cancel</button>
+						<button
+							onClick={() => {
+								const confirm = window.confirm("Are you want to cancel?");
+								if (confirm) handleShowModal();
+							}}
+							type="reset"
+						>
+							Cancel
+						</button>
 					</div>
 				</form>
 			)}
