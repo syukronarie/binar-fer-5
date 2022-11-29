@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // import Homepage from "./pages/Homepage";
 // import CountApp from "./pages/CountApp";
 // import SimpleCalculator from "./pages/SimpleCalculator";
-import LifeCycleInClass from "./pages/LifeCycleInClass";
+// import LifeCycleInClass from "./pages/LifeCycleInClass";
+import FunctLifeCycle from "./pages/FunctLifeCycle";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -13,6 +14,7 @@ root.render(
 	// {/* <Homepage /> */}
 	// {/* <CountApp /> */}
 	// {/* <SimpleCalculator /> */}
-	<LifeCycleInClass />
+	// <LifeCycleInClass />
+	<FunctLifeCycle />
 	// </React.StrictMode>
 );
