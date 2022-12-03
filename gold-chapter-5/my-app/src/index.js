@@ -4,14 +4,14 @@ import Homepage from "./Homepage";
 import "./index.css";
 // import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-// import Count from "./Count";
+import Count from "./Count";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 	<React.StrictMode>
 		{/* <App /> */}
-		{/* <Count /> */}
-		<Homepage />
+		<Count />
+		{/* <Homepage /> */}
 	</React.StrictMode>
 );
 
