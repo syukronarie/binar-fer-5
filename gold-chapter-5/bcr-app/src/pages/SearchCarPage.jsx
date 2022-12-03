@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import APICar from "../apis/customer/APICar";
+import { Link } from "react-router-dom";
+import APICar from "../apis/admin/APICar";
 
 const SearchCarPage = () => {
 	const [cars, setCars] = useState([]);
@@ -62,8 +63,8 @@ const SearchCarPage = () => {
 					<option value="large">6 - 8 Orang</option>
 				</select>
 				<select name="isRented" id="isRented">
-					<option value="TRUE">Disewa</option>
 					<option value="FALSE">Tersedia</option>
+					<option value="TRUE">Disewa</option>
 				</select>
 				<select name="price" id="isRented">
 					<option value="cheap">&lt; Rp. 400.000</option>
@@ -72,13 +73,15 @@ const SearchCarPage = () => {
 				</select>
 				<button type="submit">Cari Mobil</button>
 			</form>
-			<div>
+			<div className="cars">
 				{cars.map((car) => (
-					<div key={car.id}>
-						<h1>name: {car.name}</h1>
+					<div className="car" key={car.id}>
+						<Link to={`/car/${car.id}`}>
+							<h4>name: {car.name}</h4>
+						</Link>
 						<p>category: {car.category}</p>
 						<p>price: {car.price}</p>
-						<p>status: {car.status}</p>
+						<p>status: {car.status ? "Sedang disewa" : "Tersedia"}</p>
 						<img src={car.image} alt={car.name} />
 					</div>
 				))}
