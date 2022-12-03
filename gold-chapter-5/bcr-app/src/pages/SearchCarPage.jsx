@@ -1,12 +1,6 @@
 import React, { useState } from "react";
 import APICar from "../apis/customer/APICar";
 
-// name
-// category
-// isRented
-// minPrice
-// maxPrice
-
 const SearchCarPage = () => {
 	const [cars, setCars] = useState([]);
 
@@ -44,9 +38,11 @@ const SearchCarPage = () => {
 			maxPrice,
 		};
 
-		const result = await APICar.searchCar(payload);
-		if (result.status === 200) {
-			setCars(result.data.cars);
+		try {
+			const result = await APICar.searchCar(payload);
+			if (result.data) setCars(result.data);
+		} catch (error) {
+			alert("Ups ada yg error dari server");
 		}
 	};
 
