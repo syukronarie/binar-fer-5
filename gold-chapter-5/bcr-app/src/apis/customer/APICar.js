@@ -1,4 +1,4 @@
-import { axiosAdminInstance } from "../../configs/axiosInstance";
+import { axiosCustomerInstance } from "../../configs/axiosInstance";
 
 const APICar = {
 	searchCar: async ({ name, category, isRented, minPrice, maxPrice }) => {
@@ -10,7 +10,7 @@ const APICar = {
 		if (minPrice) params["minPrice"] = minPrice;
 		if (maxPrice) params["maxPrice"] = maxPrice;
 
-		const res = await axiosAdminInstance.get("/car", { params });
+		const res = await axiosCustomerInstance.get("/car", { params });
 		return res;
 	},
 };
