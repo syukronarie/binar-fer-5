@@ -1,12 +1,8 @@
 import "./App.css";
-import TodoApp from "./pages/TodoApp";
+import SetupRouters from "./routers";
 
 function App() {
-	return (
-		<>
-			<TodoApp />
-		</>
-	);
+	return <SetupRouters />;
 }
 
 export default App;
