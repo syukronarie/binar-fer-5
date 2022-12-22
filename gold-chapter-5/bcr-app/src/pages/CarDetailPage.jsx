@@ -6,14 +6,16 @@ const CarDetail = () => {
 	const [car, setCar] = useState();
 	const params = useParams();
 
-	(async () => {
-		try {
-			const res = await APICar.findCarById(params.carId);
-			setCar(res.data);
-		} catch (error) {
-			alert("ups ada yg error dari server");
-		}
-	})();
+	React.useEffect(() => {
+		(async () => {
+			try {
+				const res = await APICar.findCarById(params.carId);
+				setCar(res.data);
+			} catch (error) {
+				alert("ups ada yg error dari server");
+			}
+		})();
+	}, []);
 
 	return (
 		<div>
