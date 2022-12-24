@@ -6,6 +6,9 @@ const Auth = {
 		if (token) return true;
 		return null;
 	},
+	getAccessToken: () => {
+		return Cookies.get("token");
+	},
 	logOut: (navigate) => {
 		Cookies.remove("token");
 		navigate("/sign-in");
