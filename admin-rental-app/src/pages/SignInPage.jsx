@@ -1,20 +1,40 @@
 import React from "react";
 import APIAuth from "../apis/APIAuth";
+import { notification } from "antd";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SignInPage = () => {
+	const navigate = useNavigate();
+	const { search } = useLocation();
+	const [api, contextHolder] = notification.useNotification();
+	const openNotificationWithIcon = (type, message, description) => {
+		api[type]({
+			message,
+			description,
+		});
+	};
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
 		try {
 			await APIAuth.login(Object.fromEntries(formData));
-			alert("Successfully login");
+			openNotificationWithIcon("success", "Login", "Successfully login");
+			let returnTo = "/";
+			const params = new URLSearchParams(search);
+			const redirectTo = params.get("return_to");
+			if (redirectTo) returnTo += `${redirectTo}`;
+			setTimeout(() => {
+				navigate(returnTo);
+			}, 2000);
 		} catch (error) {
-			alert("Login failed");
+			openNotificationWithIcon("error", "Login", "Login failed");
 		}
 	};
 
 	return (
 		<div>
+			{contextHolder}
 			<h1>SignInPage</h1>
 			<form onSubmit={handleSubmit}>
 				<input type="email" name="email" id="email" placeholder="email" />
