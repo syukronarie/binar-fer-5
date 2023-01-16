@@ -1,13 +1,13 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-const Layout = (props) => {
-	return (
-		<>
-			<Navbar />
-			{props.children}
-		</>
-	);
-};
+function Layout({ children }) {
+  return (
+    <>
+      <Navbar />
+      {children}
+    </>
+  );
+}
 
 export default Layout;
