@@ -25,7 +25,7 @@ export const generateDataChart = (labels, datasets) => ({
   datasets,
 });
 
-const lastDate = (y, m) => new Date(y, m + 1, 0).getDate();
+const lastDate = (y, m) => new Date(y, m, 0).getDate();
 
 function CarRentedChart() {
   const [data, setData] = useState({});
