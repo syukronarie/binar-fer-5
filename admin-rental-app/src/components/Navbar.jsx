@@ -13,7 +13,7 @@ function Navbar() {
           <Link to="/">Dashboard</Link>
         </li>
         <li>
-          <Link to="/list-cars">Cars</Link>
+          <Link to="/list-orders">List Orders</Link>
         </li>
         <li>
           <Link to="/car-rented-chart">Car Rented Chart</Link>
