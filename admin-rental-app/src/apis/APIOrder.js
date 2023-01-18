@@ -1,10 +1,10 @@
 import axiosInstance from "../configs/axiosInstance";
 
 const APIOrder = {
-  getListOrders: async ({ page, pageSize }) => {
+  getListOrders: async ({ currentPage, pageSize }) => {
     try {
       const params = {};
-      if (page) params["page"] = page;
+      if (currentPage) params["page"] = currentPage;
       if (pageSize) params["pageSize"] = pageSize;
       const response = await axiosInstance.get("/v2/order", { params });
       return response.data;
