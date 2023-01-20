@@ -9,23 +9,25 @@ import PrivateRoute from "./PrivateRoute";
 import ProtectedRoute from "./ProtectedRoute";
 import CarRentedChart from "../pages/CarRentedChart";
 import ListOrdersPage from "../pages/ListOrdersPage";
+import LoginPage from "../pages/LoginPage";
 
 function SetupRouter() {
-  return (
-    <Routes>
-      <Route path="/" element={<PrivateRoute />}>
-        <Route index element={<DashboardPage />} />
-        <Route path="/add-car" element={<AddCarPage />} />
-        <Route path="/edit-car" element={<EditCarPage />} />
-        <Route path="/list-orders" element={<ListOrdersPage />} />
-        <Route path="/car-rented-chart" element={<CarRentedChart />} />
-      </Route>
-      <Route path="/" element={<ProtectedRoute />}>
-        <Route path="/sign-in" element={<SignInPage />} />
-      </Route>
-      <Route path="*" element={<NotFoundPage />} />
-    </Routes>
-  );
+	return (
+		<Routes>
+			<Route path="/" element={<PrivateRoute />}>
+				<Route index element={<DashboardPage />} />
+				<Route path="/add-car" element={<AddCarPage />} />
+				<Route path="/edit-car" element={<EditCarPage />} />
+				<Route path="/list-orders" element={<ListOrdersPage />} />
+				<Route path="/car-rented-chart" element={<CarRentedChart />} />
+			</Route>
+			<Route path="/" element={<ProtectedRoute />}>
+				<Route path="/sign-in" element={<SignInPage />} />
+				<Route path="/login" element={<LoginPage />} />
+			</Route>
+			<Route path="*" element={<NotFoundPage />} />
+		</Routes>
+	);
 }
 
 export default SetupRouter;
