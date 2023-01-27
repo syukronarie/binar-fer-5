@@ -1,5 +1,6 @@
 {
   "name": "admin-rental-app",
+  "type": "module",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -7,6 +8,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "cover": "react-scripts test --coverage --watchAll=false",
     "lint": "eslint --ignore-path .gitignore ./src",
     "lint:fix": "eslint --ignore-path .gitignore ./src --fix",
     "prettier:fix": "prettier --write --ignore-path .gitignore ./src",
@@ -33,6 +35,8 @@
     "web-vitals": "^2.1.4"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.3.1",
     "eslint": "^8.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.6.0",
@@ -52,6 +56,14 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.[t|j]sx?$": "babel-jest"
+    },
+    "transformIgnorePatterns": [
+      "<rootDir>/node_modules/"
     ]
   }
 }
