@@ -1,4 +1,4 @@
-import axiosInstance from "../configs/axiosInstance";
+import { axiosAdminInstance } from "../configs/axiosInstance";
 
 const APIOrder = {
   getListOrders: async ({ currentPage, pageSize }) => {
@@ -6,7 +6,7 @@ const APIOrder = {
       const params = {};
       if (currentPage) params["page"] = currentPage;
       if (pageSize) params["pageSize"] = pageSize;
-      const response = await axiosInstance.get("/v2/order", { params });
+      const response = await axiosAdminInstance.get("/v2/order", { params });
       return response.data;
     } catch (error) {
       throw new Error(error);
@@ -17,7 +17,7 @@ const APIOrder = {
       const params = {};
       if (from) params["from"] = from;
       if (until) params["until"] = until;
-      const response = await axiosInstance.get("/order/reports", { params });
+      const response = await axiosAdminInstance.get("/order/reports", { params });
       return response.data;
     } catch (error) {
       throw new Error(error);

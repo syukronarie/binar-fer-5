@@ -16,7 +16,14 @@ function Navbar() {
           <Link to="/list-orders">List Orders</Link>
         </li>
         <li>
+          <Link to="/list-cars">List Cars</Link>
+        </li>
+
+        <li>
           <Link to="/car-rented-chart">Car Rented Chart</Link>
+        </li>
+        <li>
+          <Link to="/payment">Payment Page</Link>
         </li>
         {Auth.isAuthorization() && (
           <li>

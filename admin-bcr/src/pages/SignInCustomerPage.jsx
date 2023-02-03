@@ -3,7 +3,6 @@ import React from "react";
 import { notification } from "antd";
 import { useLocation, useNavigate } from "react-router-dom";
 import APIAuth from "../apis/APIAuth";
-import { DatePicker } from "../components/DatePicker/DatePicker";
 
 function SignInPage() {
   const navigate = useNavigate();
@@ -20,7 +19,7 @@ function SignInPage() {
     e.preventDefault();
     const formData = new FormData(e.target);
     try {
-      await APIAuth.loginAdmin(Object.fromEntries(formData));
+      await APIAuth.loginCustomer(Object.fromEntries(formData));
       openNotificationWithIcon("success", "Login", "Successfully login");
       let returnTo = "/";
       const params = new URLSearchParams(search);

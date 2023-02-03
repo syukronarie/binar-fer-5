@@ -1,10 +1,22 @@
-import axiosInstance from "../configs/axiosInstance";
+import { axiosAdminInstance, axiosCustomerInstance } from "../configs/axiosInstance";
 import Auth from "../utils/Auth";
 
 const APIAuth = {
-  login: async ({ email, password }) => {
+  loginAdmin: async ({ email, password }) => {
     try {
-      const respond = await axiosInstance.post("/auth/login", {
+      const respond = await axiosAdminInstance.post("/auth/login", {
+        email,
+        password,
+      });
+      Auth.storeUserInfoToCookies(respond.data.access_token);
+      return respond.data;
+    } catch (error) {
+      throw new Error(error);
+    }
+  },
+  loginCustomer: async ({ email, password }) => {
+    try {
+      const respond = await axiosCustomerInstance.post("/auth/login", {
         email,
         password,
       });
