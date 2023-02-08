@@ -7,7 +7,7 @@ const axiosAdminInstance = axios.create({
 });
 
 const axiosCustomerInstance = axios.create({
-  baseURL: CONST.BASE_URL_ADMIN,
+  baseURL: CONST.BASE_URL_CUSTOMER,
 });
 
 axiosAdminInstance.interceptors.request.use(requestHandler);

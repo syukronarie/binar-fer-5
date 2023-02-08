@@ -43,9 +43,6 @@ function SignInPage() {
         <input type="password" name="password" id="password" placeholder="password" />
         <button type="submit">Login</button>
       </form>
-      <br />
-      <br />
-      {/* <DatePicker placeholder="DD-MM-YYYY" /> */}
     </div>
   );
 }

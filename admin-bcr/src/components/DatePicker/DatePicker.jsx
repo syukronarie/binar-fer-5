@@ -3,7 +3,7 @@
 /* eslint-disable react/display-name */
 import React, { forwardRef } from "react";
 import ReactDatePicker from "react-datepicker";
-import { FaRegCalendarAlt } from "react-icons/fa";
+import { FaCalendarDay } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
 import "./DatePicker.styles.css";
 
@@ -25,7 +25,7 @@ export function DatePicker({ dateValue, setDate, label, dateFormat, name, testId
         placeholder={placeholder}
         disabled={disabled}
       />
-      <FaRegCalendarAlt className="calendar-icon" alt="calendar-icon" />
+      <FaCalendarDay className="calendar-icon" alt="calendar-icon" />
     </div>
   ));
 

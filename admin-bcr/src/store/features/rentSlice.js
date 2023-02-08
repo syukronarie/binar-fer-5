@@ -12,7 +12,7 @@ const initialState = {
   step: STEPS.SELECT_DATE,
   payload: {
     method: "",
-    invoice: null,
+    invoice: [],
     dateRange: null,
   },
   carData: null,
@@ -35,7 +35,10 @@ const paymentSlice = createSlice({
       state.payload.method = action.payload;
     },
     setInvoice: (state, action) => {
-      state.payload.invoice = action.payload;
+      console.log({ action });
+      const files = action.payload;
+      console.log({ files });
+      state.payload.invoice = files;
     },
   },
 });
@@ -45,3 +48,4 @@ export default paymentSlice.reducer;
 
 export const selectStepPayment = (state) => state.rent.step;
 export const selectCarData = (state) => state.rent.carData;
+export const selectPayloadPayment = (state) => state.rent.payload;

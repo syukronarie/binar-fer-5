@@ -1,28 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setCarData } from "../store/features/rentSlice";
-import APICar from "../apis/APICar";
+import { fetchSearchCars, searchPayloadSearchCars, selectSearchCars, setPayload } from "../store/features/searchCarsSlice";
+import useDebounce from "../hooks/useDebounce";
 
 export default function ListCarsPage() {
-  const [dataGetCars, setDataGetCars] = useState(null);
   const dispatch = useDispatch();
+  const searchCarsData = useSelector(selectSearchCars);
+  const { payload } = useSelector(searchPayloadSearchCars);
 
-  useEffect(() => {
-    APICar.getCars()
-      .then((data) => setDataGetCars(data))
-      .catch((err) => console.error(err));
-  }, []);
+  const [_searchByName, setSearchValue] = useState("");
+  const searchByName = useDebounce(_searchByName, 1000);
 
   const handleRent = (carData) => {
     dispatch(setCarData(carData));
   };
 
+  useEffect(() => {
+    dispatch(setPayload({ name: searchByName }));
+  }, [searchByName, dispatch]);
+
+  useEffect(() => {
+    if (payload) {
+      dispatch(fetchSearchCars({ ...payload }));
+    } else {
+      dispatch(fetchSearchCars());
+    }
+  }, [payload, dispatch]);
+
   return (
     <div>
       <h1>ListCars</h1>
+      <input type="text" onChange={(e) => setSearchValue(e.target.value)} placeholder="Enter a keyword" />
       <div>
-        {dataGetCars?.cars.map((car) => (
+        {searchCarsData.data?.cars.map((car) => (
           <div key={car.id}>
             <p>{car.name}</p>
             <p>{car.price}</p>
